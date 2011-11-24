@@ -7,15 +7,15 @@ module ThemesForRails
     include ThemesForRails::UrlHelpers
     
     def stylesheets
-      render_asset asset_path_for(params[:asset], 'stylesheets'), mime_type_from(params[:asset])
+      render_asset asset_path_for(params[:asset], 'stylesheets'), mime_type_from("#{params[:asset]}.#{params[:format]}")
     end
     
     def javascripts
-      render_asset asset_path_for(params[:asset], 'javascripts'), mime_type_from(params[:asset])  
+      render_asset asset_path_for(params[:asset], 'javascripts'), mime_type_from("#{params[:asset]}.#{params[:format]}")  
     end
     
     def images
-      render_asset asset_path_for(params[:asset], 'images'), mime_type_from(params[:asset])  
+      render_asset asset_path_for(params[:asset], 'images'), mime_type_from("#{params[:asset]}.#{params[:format]}")  
     end
     
   private
