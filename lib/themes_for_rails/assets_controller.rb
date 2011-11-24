@@ -21,7 +21,7 @@ module ThemesForRails
   private
   
     def asset_path_for(asset_url, asset_prefix)
-      File.join(theme_path_for(params[:theme]), asset_prefix, params[:asset])
+      File.join(theme_path_for(params[:theme]), asset_prefix, "#{params[:asset]}.#{params[:format]}")
     end
     
     def extract_filename_and_extension_from(asset)
