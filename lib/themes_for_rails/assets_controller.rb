@@ -34,7 +34,8 @@ module ThemesForRails
       unless File.exists?(asset)
         render :text => 'not found', :status => 404
       else
-        send_file asset, :type => mime_type
+        expires_in 2.days, :public => true if Rails.env.production?
+        send_file asset, :type => mime_type, :url_based_filename => true
       end
     end
   
